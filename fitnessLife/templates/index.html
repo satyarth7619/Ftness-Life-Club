@@ -36,7 +36,8 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="/" class="logo d-flex align-items-center me-auto me-lg-0">
-        <h1 class="sitename">Fitness Life Club</h1>
+        <link href="https://fonts.googleapis.com/css?family=Oxanium" rel="stylesheet">
+        <h1 style="font-family: 'Oxanium', sans-serif;">Fitness life Club</h1>
         <span>.</span>
       </a>
 
@@ -44,15 +45,14 @@
         <ul>
           <li><a href="/" class="active">Home<br></a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
+          <li><a href="#Services">Services</a></li>
           <li><a href="/gallery">Gallery</a></li>
           <li><a href="/contact">Contact</a></li>
           <li class="dropdown"><a href="#"><span>Memberships</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Enroll</a></li>
-              <li><a href="#">View Profile</a></li>
-              <li><a href="#">Tracker</a></li>
-              <li><a href="#">Workouts</a></li>
+              <li><a href="/join">Enroll</a></li>
+              <li><a href="/profile">View Profile</a></li>
+              <li><a href="/attendance">Attendance</a></li>
             </ul>
           </li>
           <li><a href="/achivements">Gym Awards</a></li>
@@ -60,7 +60,14 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="/signin">Sign In</a>
+      {% if not request.user.is_authenticated %}
+      <a class="btn-getstarted" href="/signup">Sign In</a>
+      {% else %}
+      <a href="/">Welcome</a>
+      <a class="btn-getstarted" href="/logout">Logout</a>
+      {% endif %} 
+  
+      
 
     </div>
   </header>
@@ -76,50 +83,51 @@
 
         <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
           <div class="col-xl-6 col-lg-8">
-            <h2>The pain you feel today will be the strength you feel tomorrow<span>.</span></h2>
+            <h2>Success starts with self-discipline<span>.</span></h2>
             <p>Join Fitness Life Club To Change Lifestyle</p>
           </div>
         </div>
 
-        <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <i class="bi bi-binoculars"></i>
-              <h3><a href="">Lorem Ipsum</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon-box">
-              <i class="bi bi-bullseye"></i>
-              <h3><a href="">Dolor Sitema</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon-box">
-              <i class="bi bi-fullscreen-exit"></i>
-              <h3><a href="">Sedare Perspiciatis</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon-box">
-              <i class="bi bi-card-list"></i>
-              <h3><a href="">Magni Dolores</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="700">
-            <div class="icon-box">
-              <i class="bi bi-gem"></i>
-              <h3><a href="">Nemos Enimade</a></h3>
-            </div>
+      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-store-line"></i>
+            <h3><a href="">Biceps | Triceps</a></h3>
           </div>
         </div>
-
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-bar-chart-box-line"></i>
+            <h3><a href="">Back</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-calendar-todo-line"></i>
+            <h3><a href="">Shoulders</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-paint-brush-line"></i>
+            <h3><a href="">Chest</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-database-2-line"></i>
+            <h3><a href="">Legs</a></h3>
+          </div>
+        </div>
       </div>
 
-    </section><!-- /Hero Section -->
+    </div>
+  </section><!-- /Hero Section -->
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" 
+            class="about section" 
+            style="background-color: black; color: #ffffff;" >
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -128,19 +136,20 @@
             <img src="static/assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 order-2 order-lg-1 content">
-            <h3>Voluptatem dignissimos provident</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            <h3 style="color: #ffffff; font-family: 'Oxanium', sans-serif">Biggest Open Gym in Crossing Republik</h3>
+            <link href="https://fonts.googleapis.com/css?family=Oxanium" rel="stylesheet">
+            <p class="fst-italic" style="color: #ffffff; font-family: 'Oxanium', sans-serif;">
+              Imagine a gym that not only boasts the largest open area for fitness enthusiasts but also offers distinct, 
+              specialized sections to cater to a wide range of fitness activities. 
             </p>
             <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span style="font-family: 'Oxanium', sans-serif">Indoor Climbing Walls: Multiple walls with varying degrees of difficulty, including bouldering, top-rope, and lead climbing options.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span style="font-family: 'Oxanium', sans-serif">Professional Setup: Includes a full-size boxing ring, heavy bags, speed bags, and a variety of gloves and protective gear.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span style="font-family: 'Oxanium', sans-serif">Dedicated CrossFit Box: A separate area equipped with barbells, kettlebells, medicine balls, plyometric boxes, and rowing machines. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
             </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+            <p style="font-family: 'Oxanium', sans-serif">
+              Welcome to Fitness Life Club, a state-of-the-art 
+              facility designed to meet the diverse needs of its members through innovative and well-equipped spaces.
             </p>
           </div>
         </div>
@@ -149,7 +158,7 @@
 
     </section><!-- /About Section -->
 
-    <!-- Clients Section -->
+    <!-- Clients Section 
     <section id="clients" class="clients section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -203,12 +212,13 @@
 
       </div>
 
-    </section><!-- /Clients Section -->
+    </section> -->
+    
 
     <!-- Features Section -->
-    <section id="features" class="features section">
+    <section id="features" class="features section" style="background-color: black; color: #ffffff;">
 
-      <div class="container">
+      <div class="container" >
 
         <div class="row gy-4">
           <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="static/assets/img/features-bg.jpg" alt=""></div>
@@ -217,32 +227,32 @@
             <div class="features-item d-flex ps-0 ps-lg-3 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-archive flex-shrink-0"></i>
               <div>
-                <h4>Est labore ad</h4>
-                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                <h4 style="color: #ffffff; font-family: 'Oxanium', sans-serif">Water</h4>
+                <p style="color: #ffffff; font-family: 'Oxanium', sans-serif">We understand the importance of staying hydrated during your workouts. That's why we provide complimentary water for all our members.</p>
               </div>
             </div><!-- End Features Item-->
 
             <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-basket flex-shrink-0"></i>
               <div>
-                <h4>Harum esse qui</h4>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                <h4 style="color: #ffffff; font-family: 'Oxanium', sans-serif">Childcare</h4>
+                <p style="color: #ffffff; font-family: 'Oxanium', sans-serif">Supervised childcare facilities or babysitting services provided while parents work out, ensuring a family-friendly environment.</p>
               </div>
             </div><!-- End Features Item-->
 
             <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-broadcast flex-shrink-0"></i>
               <div>
-                <h4>Aut occaecati</h4>
-                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                <h4 style="color: #ffffff; font-family: 'Oxanium', sans-serif">Friendly Environment</h4>
+                <p style="color: #ffffff; font-family: 'Oxanium', sans-serif">Our team of dedicated professionals is here to greet you with a smile, answer your questions, and provide the support you need every step of the way</p>
               </div>
             </div><!-- End Features Item-->
 
             <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-camera-reels flex-shrink-0"></i>
               <div>
-                <h4>Beatae veritatis</h4>
-                <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                <h4 style="color: #ffffff; font-family: 'Oxanium', sans-serif">Video </h4>
+                <p style="color: #ffffff; font-family: 'Oxanium', sans-serif">Our gym provides the perfect backdrop for your fitness videos</p>
               </div>
             </div><!-- End Features Item-->
 
@@ -254,15 +264,19 @@
     </section><!-- /Features Section -->
 
     <!-- Services Section -->
-    <section id="services" class="services section">
+    <section id="services" class="services section" style="background-color: black; ">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Check our Services</p>
+        <link href="https://fonts.googleapis.com/css?family=Oxanium" rel="stylesheet">
+
+        
+        <h2 id="Services" style="font-family: 'Oxanium', sans-serif; color:#ffffff">Services</h2>
+        <p style="font-family: 'Oxanium', sans-serif; color:#ffffff">Check our Services</p>
+      
       </div><!-- End Section Title -->
 
-      <div class="container">
+      <div class="container" style="color:#ffffff">
 
         <div class="row gy-4">
 
@@ -271,10 +285,10 @@
               <div class="icon">
                 <i class="bi bi-activity"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Nesciunt Mete</h3>
+              
+                <h3 style="font-family: 'Oxanium', sans-serif; color:#ffffff">Gym Health Assessments</h3>
               </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+              <p style="font-family: 'Oxanium', sans-serif;">Gym offer a comprehensive health assessment for new members, which often includes measuring BMI along with other fitness metrics like body fat percentage, muscle mass, and cardiovascular fitness.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -283,10 +297,10 @@
               <div class="icon">
                 <i class="bi bi-broadcast"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Eosle Commodi</h3>
+              
+                <h3 style="font-family: 'Oxanium', sans-serif; color:#ffffff">Group Fitness Classes:</h3>
               </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+              <p style="font-family: 'Oxanium', sans-serif;">Structured classes led by instructors, including activities like yoga, spinning, Pilates, Zumba, aerobics, and HIIT (High-Intensity Interval Training).</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -295,10 +309,10 @@
               <div class="icon">
                 <i class="bi bi-easel"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Ledo Markt</h3>
+              
+                <h3 style="font-family: 'Oxanium', sans-serif; color:#ffffff">Nutritional Counseling</h3>
               </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+              <p style="font-family: 'Oxanium', sans-serif;">Advice and plans provided by certified nutritionists or dietitians to help members optimize their diet for health and fitness goals.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -307,11 +321,11 @@
               <div class="icon">
                 <i class="bi bi-bounding-box-circles"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Asperiores Commodit</h3>
+              
+                <h3 style="font-family: 'Oxanium', sans-serif; color:#ffffff">Spa and Wellness Services</h3>
               </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="service-details.html" class="stretched-link"></a>
+              <p style="font-family: 'Oxanium', sans-serif;">Amenities such as saunas, steam rooms, massage therapy, and relaxation areas to support recovery and overall wellness.</p>
+              
             </div>
           </div><!-- End Service Item -->
 
@@ -320,24 +334,24 @@
               <div class="icon">
                 <i class="bi bi-calendar4-week"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Velit Doloremque</h3>
+              
+                <h3 style="font-family: 'Oxanium', sans-serif; color:#ffffff">Specialized Training Programs</h3>
               </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="service-details.html" class="stretched-link"></a>
+              <p style="font-family: 'Oxanium', sans-serif;">Programs focusing on specific goals or populations, such as weight loss programs, sports-specific training, senior fitness, or youth programs.</p>
+              
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
+                <i class="bi bi-lock-fill"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Dolori Architecto</h3>
+              
+                <h3 style="font-family: 'Oxanium', sans-serif; color:#ffffff">Locker Room Amenities</h3>
               </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="service-details.html" class="stretched-link"></a>
+              <p style="font-family: 'Oxanium', sans-serif;">Additional conveniences such as towel service, toiletries, and private lockers to enhance the overall gym experience.</p>
+        
             </div>
           </div><!-- End Service Item -->
 
@@ -356,9 +370,12 @@
         <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-xl-10">
             <div class="text-center">
-              <h3>Call To Action</h3>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <a class="cta-btn" href="#">Call To Action</a>
+              <h3 style="font-family: 'Oxanium', sans-serif;">Call for Any Query</h3>
+              <link href="https://fonts.googleapis.com/css?family=Oxanium" rel="stylesheet">
+              <p style="font-family: 'Oxanium', sans-serif;">At Fitness Oasis, we're committed to helping you achieve your fitness goals and ensuring you have the best experience possible. If you have any questions about our services, memberships, classes, or facilities, don't hesitate to get in touch with us. Our friendly and knowledgeable staff are here to assist you.</p>
+              <a class="cta-btn" href="tel:+916378441762">Call</a>
+              
+
             </div>
           </div>
         </div>
@@ -367,12 +384,12 @@
     </section><!-- /Call To Action Section -->
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+    <section id="portfolio" class="portfolio section" style="background-color: black; color: #ffffff;">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Check our Portfolio</p>
+        <h2 style="font-family: 'Oxanium', sans-serif; color: #ffffff" >Portfolio</h2>
+        <p style="font-family: 'Oxanium', sans-serif; color: #ffffff">Check our Portfolio</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -380,10 +397,10 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Card</li>
-            <li data-filter=".filter-branding">Web</li>
+            <li data-filter="*" class="filter-active" style="font-family: 'Oxanium', sans-serif;">All</li>
+            <li data-filter=".filter-app" style="font-family: 'Oxanium', sans-serif;">App</li>
+            <li data-filter=".filter-product" style="font-family: 'Oxanium', sans-serif;">Card</li>
+            <li data-filter=".filter-branding" style="font-family: 'Oxanium', sans-serif;">Web</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -391,8 +408,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">App 1</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -401,8 +418,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Product 1</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -411,8 +428,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Branding 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Branding 1</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -421,8 +438,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">App 2</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -431,8 +448,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Product 2</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -441,8 +458,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Branding 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Branding 2</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -451,8 +468,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">App 3</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -461,8 +478,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Product 3</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -471,8 +488,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="static/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Branding 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Branding 3</h4>
+                <p style="font-family: 'Oxanium', sans-serif;">Lorem ipsum, dolor sit</p>
                 <a href="static/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -487,7 +504,7 @@
     </section><!-- /Portfolio Section -->
 
     <!-- Stats Section -->
-    <section id="stats" class="stats section">
+    <section id="stats" class="stats section" style="background-color: black; color: #ffffff;">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -499,19 +516,19 @@
 
           <div class="col-lg-6">
 
-            <h3 class="fw-bold fs-2 mb-3">Voluptatem dignissimos provident quasi</h3>
-            <p>
+            <h3 class="fw-bold fs-2 mb-3" style="font-family: 'Oxanium', sans-serif; color: #ffffff">Voluptatem dignissimos provident quasi</h3>
+            <p style="font-family: 'Oxanium', sans-serif;">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
             </p>
 
-            <div class="row gy-4">
+            <div class="row gy-4" style="color: #ffffff;">
 
               <div class="col-lg-6">
                 <div class="stats-item d-flex">
                   <i class="bi bi-emoji-smile flex-shrink-0"></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
+                  <div >
+                    <span style="color: #ffffff;" data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong style="font-family: 'Oxanium', sans-serif; color: #ffffff">Happy Clients</strong> <span style="font-family: 'Oxanium', sans-serif; color: #ffffff" >consequuntur quae</span></p>
                   </div>
                 </div>
               </div><!-- End Stats Item -->
@@ -520,8 +537,8 @@
                 <div class="stats-item d-flex">
                   <i class="bi bi-journal-richtext flex-shrink-0"></i>
                   <div>
-                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
+                    <span style="color: #ffffff;" data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                    <p style="font-family: 'Oxanium', sans-serif; color: #ffffff"><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
                   </div>
                 </div>
               </div><!-- End Stats Item -->
@@ -530,8 +547,8 @@
                 <div class="stats-item d-flex">
                   <i class="bi bi-headset flex-shrink-0"></i>
                   <div>
-                    <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
+                    <span style="color: #ffffff;"  data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                    <p style="font-family: 'Oxanium', sans-serif; color: #ffffff"><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
                   </div>
                 </div>
               </div><!-- End Stats Item -->
@@ -540,8 +557,8 @@
                 <div class="stats-item d-flex">
                   <i class="bi bi-people flex-shrink-0"></i>
                   <div>
-                    <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
+                    <span style="color: #ffffff;"  data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+                    <p style="font-family: 'Oxanium', sans-serif; color: #ffffff"><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
                   </div>
                 </div>
               </div><!-- End Stats Item -->
@@ -557,13 +574,13 @@
     </section><!-- /Stats Section -->
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
+    <section id="testimonials" class="testimonials section" style="background-color: black; color: #ffffff;">
 
       <img src="static/assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="swiper">
+        <div class="swiper" >
           <script type="application/json" class="swiper-config">
             {
               "loop": true,
@@ -584,14 +601,14 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="static/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3 style="font-family: 'Oxanium', sans-serif;">Saul Goodman</h3>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Ceo &amp; Founder</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <span style="font-family: 'Oxanium', sans-serif;">Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -600,14 +617,14 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="static/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <h3 style="font-family: 'Oxanium', sans-serif;">Sara Wilsson</h3>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Designer</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                  <span style="font-family: 'Oxanium', sans-serif;">Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -616,14 +633,14 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="static/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <h3 style="font-family: 'Oxanium', sans-serif;">Jena Karlis</h3>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Store Owner</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                  <span style="font-family: 'Oxanium', sans-serif;">Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -632,14 +649,14 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="static/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <h3 style="font-family: 'Oxanium', sans-serif;">Matt Brandon</h3>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Freelancer</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                  <span style="font-family: 'Oxanium', sans-serif;">Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -648,14 +665,14 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="static/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
+                <h3 style="font-family: 'Oxanium', sans-serif;">John Larson</h3>
+                <h4 style="font-family: 'Oxanium', sans-serif;">Entrepreneur</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                  <span style="font-family: 'Oxanium', sans-serif;">Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -670,19 +687,19 @@
     </section><!-- /Testimonials Section -->
 
     <!-- Team Section -->
-    <section id="team" class="team section">
+    <section id="team" class="team section" style="background-color: black; color: #ffffff;">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>our Team</p>
+      <div class="container section-title" data-aos="fade-up" >
+        <h2 style="font-family: 'Oxanium', sans-serif; color: #ffffff">Team</h2>
+        <p style="font-family: 'Oxanium', sans-serif; color: #ffffff">our Team</p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
         <div class="row gy-4">
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div  class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member">
               <div class="member-img">
                 <img src="static/assets/img/team/team-1.jpg" class="img-fluid" alt="">
@@ -693,9 +710,9 @@
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+              <div  class="member-info">
+                <h4 style="font-family: 'Oxanium', sans-serif; color: #ffffff">Walter White</h4>
+                <span style="font-family: 'Oxanium', sans-serif; color: #ffffff">Chief Executive Officer</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -711,9 +728,9 @@
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
+              <div class="member-info" style="font-family: 'Oxanium', sans-serif; ">
+                <h4 style="font-family: 'Oxanium', sans-serif; color: #ffffff">Sarah Jhonson</h4>
+                <span style="color: #ffffff;" >Product Manager</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -729,9 +746,9 @@
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
+              <div class="member-info" style="font-family: 'Oxanium', sans-serif;">
+                <h4 style="font-family: 'Oxanium', sans-serif; color: #ffffff">William Anderson</h4>
+                <span style="color: #ffffff;" >CTO</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -747,9 +764,9 @@
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
+              <div class="member-info" style="font-family: 'Oxanium', sans-serif;">
+                <h4 style="font-family: 'Oxanium', sans-serif; color: #ffffff">Amanda Jepson</h4>
+                <span style="color: #ffffff;" >Accountant</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -761,12 +778,12 @@
     </section><!-- /Team Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section" style="background-color: black; ">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Contact Us</p>
+        <h2 style="font-family: 'Oxanium', sans-serif;color: #ffffff">Contact</h2>
+        <p style="font-family: 'Oxanium', sans-serif;color: #ffffff">Location</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -774,7 +791,7 @@
         <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
           <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div><!-- End Google Maps -->
-
+<!--
         <div class="row gy-4">
 
           <div class="col-lg-4">
@@ -784,7 +801,7 @@
                 <h3>Address</h3>
                 <p>A108 Adam Street, New York, NY 535022</p>
               </div>
-            </div><!-- End Info Item -->
+            </div> End Info Item 
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-telephone flex-shrink-0"></i>
@@ -792,7 +809,7 @@
                 <h3>Call Us</h3>
                 <p>+1 5589 55488 55</p>
               </div>
-            </div><!-- End Info Item -->
+            </div>
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-envelope flex-shrink-0"></i>
@@ -800,12 +817,12 @@
                 <h3>Email Us</h3>
                 <p>info@example.com</p>
               </div>
-            </div><!-- End Info Item -->
+            </div><
 
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="contact" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -834,30 +851,30 @@
 
               </div>
             </form>
-          </div><!-- End Contact Form -->
+          </div>End Contact Form 
 
         </div>
 
       </div>
 
-    </section><!-- /Contact Section -->
-
+    </section> /Contact Section -->
+                <!-- End Contact Section -->
   </main>
 
   <footer id="footer" class="footer">
 
-    <div class="footer-top">
+    <div class="footer-top" style="background-color: black; color: #ffffff;">
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">GP</span>
+              <span class="sitename" style="font-family: 'Oxanium', sans-serif;">Fitness Life Club</span>
             </a>
             <div class="footer-contact pt-3">
-              <p>A108 Adam Street</p>
-              <p>New York, NY 535022</p>
-              <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-              <p><strong>Email:</strong> <span>info@example.com</span></p>
+              <p style="font-family: 'Oxanium', sans-serif;">Lower Ground Floor, Well Bazar</p>
+              <p style="font-family: 'Oxanium', sans-serif;">PANCHSHEEL WELLINGTON, Crossings Republik, Ghaziabad,U.P</p>
+              <p class="mt-3"><strong style="font-family: 'Oxanium', sans-serif;">Phone:</strong> <span>+1 5589 55488 55</span></p>
+              <p><strong style="font-family: 'Oxanium', sans-serif;">Email:</strong> <span>info@example.com</span></p>
             </div>
             <div class="social-links d-flex mt-4">
               <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -868,28 +885,26 @@
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4 style="font-family: 'Oxanium', sans-serif;">Useful Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Privacy policy</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#"> Home</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="/about"> About us</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#Services"> Services</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#"> Privacy policy</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
+            <h4 style="font-family: 'Oxanium', sans-serif;">Our Services</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Design</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Development</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Product Management</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Marketing</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Graphic Design</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#"> Gym Health Assessments</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#"> Group Fitness Classes</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#"> Nutritional Counseling</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#"> Spa and Wellness Services</a></li>
+              <li style="font-family: 'Oxanium', sans-serif;"><i class="bi bi-chevron-right"></i> <a href="#"> Locker Room Amenities</a></li>
             </ul>
           </div>
-
-          <div class="col-lg-4 col-md-12 footer-newsletter">
+<!--          <div class="col-lg-4 col-md-12 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
             <form action="forms/newsletter.php" method="post" class="php-email-form">
@@ -902,17 +917,18 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
+
 
     <div class="copyright">
       <div class="container text-center">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">GP</strong> <span>All Rights Reserved</span></p>
+        <p>© <span style="font-family: 'Oxanium', sans-serif;">Copyright</span> <strong class="px-1 sitename" style="font-family: 'Oxanium', sans-serif;">FLC</strong > <span style="font-family: 'Oxanium', sans-serif;">All Rights Reserved</span></p>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you've purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          <p style="font-family: 'Oxanium', sans-serif;">Designed by</p> <a href="" style="font-family: 'Oxanium', sans-serif;">Satyarth Prakash Yadav</a>
         </div>
       </div>
     </div>
