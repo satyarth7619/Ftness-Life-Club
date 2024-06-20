@@ -11,11 +11,11 @@
     }],
     "routes": [
         {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
+            "src": "/",
+            "dest": "/"
         },
         {
-            "src": "/(.*)",
+            "src": "/",
             "dest": "fitnessLife/wsgi.py"
         }
     ]
