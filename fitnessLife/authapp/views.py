@@ -3,9 +3,21 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from authapp.models import Contact,MembershipPlan,Trainer,Enrollment,Gallery,Attendance
+from django.core.mail import send_mail
 # Create your views here.
 def Home(request):
+
+    #send_mail(
+    #    'testing - Contact',
+    #    'Welcome to Fitness Life Club',
+    #    'SATYARTH834@GMAIL.COM',
+    #    ['satyarthyadav093@gmail.com'],
+    #    fail_silently=False,
+    #
+    #)
     return render(request,"index.html")
+
+
 
 def about(request):
     return render(request,"about.html")
@@ -20,7 +32,7 @@ def attendance(request):
     if not request.user.is_authenticated:
         messages.warning(request,"Please Login and Try Again")
         return redirect('/login')
-    SelectTrainer=Trainer.objects.all()
+    SelectTrainer=Trainer.objects.all() # retrieve all the records of the trainer
     context={"SelectTrainer":SelectTrainer}
     if request.method=="POST":
         phonenumber=request.POST.get('PhoneNumber')
