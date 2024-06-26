@@ -22,6 +22,14 @@ def Home(request):
 def about(request):
     return render(request,"about.html")
 
+def services(request):
+    return render(request, "services.html")
+def achivements(request):
+    return render(request, "achivements.html")
+
+def arms(request):
+    return render(request, "arms.html")
+
 def gallery(request):
     posts=Gallery.objects.all()
     context={"posts":posts}
