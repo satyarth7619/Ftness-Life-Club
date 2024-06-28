@@ -23,6 +23,6 @@
       "src": "/(.*)",
       "dest": "fitnessLife/wsgi.py"
     }
-  ],
-  "outputDirectory": "ui/staticfiles"
+  ]
+  
 }
