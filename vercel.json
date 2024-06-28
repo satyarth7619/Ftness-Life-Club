@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "djangocrud/wsgi.py",
+        "src": "fitnessLife/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python" }
       },
@@ -21,7 +21,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "djangocrud/wsgi.py"
+        "dest": "fitnessLife/wsgi.py"
       }
     ]
   }
