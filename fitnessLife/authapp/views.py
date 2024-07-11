@@ -129,8 +129,9 @@ def handlelogin(request):
 
 
 def handleLogout(request):
-    logout(request)
-    messages.success(request,"Logout Success")    
+    if request.method == 'POST':
+        logout(request)
+        messages.success(request,"Logout Success")    
     return redirect('/login')
 
 def contact(request):
@@ -173,3 +174,4 @@ def enroll(request):
 
 
     return render(request,"enroll.html",context)
+
